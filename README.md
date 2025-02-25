@@ -1,4 +1,4 @@
-# finpy
+# FinPY
 Programa direcionado para o controle financeiro
 
 # Se for executar em um ambiente virutal
