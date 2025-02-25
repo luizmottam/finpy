@@ -1,0 +1,44 @@
+{
+    "Tesouro Direto": [
+        {
+            "nome": "Tesouro Selic 2031",
+            "porcentagem ideal": 35,
+            "capital aplicado": 1439.03
+        },
+        {
+            "nome": "Tesouro Prefixado 2028",
+            "porcentagem ideal": 35,
+            "capital aplicado": 779.59
+        },
+        {
+            "nome": "Tesouro Prefixado com Juros Semestrais 2035",
+            "porcentagem ideal": 10,
+            "capital aplicado": 150.04
+        },
+        {
+            "nome": "Tesouro IPCA+ 2029",
+            "porcentagem ideal": 10,
+            "capital aplicado": 455.82
+        },
+        {
+            "nome": "Tesouro IPCA+ com Juros Semestrais 2035",
+            "porcentagem ideal": 10,
+            "capital aplicado": 161.21
+        }
+    ],
+    "Fundos Imobiliarios": [
+        {"nome": "MXRF11.SA", "porcentagem ideal": 35, "quantidade": 65},
+        {"nome": "GARE11.SA", "porcentagem ideal": 35, "quantidade": 10},
+        {"nome": "CPTS11.SA", "porcentagem ideal": 15, "quantidade": 62},
+        {"nome": "BRCO11.SA", "porcentagem ideal": 15, "quantidade": 6}
+    ],
+    "Acoes": [
+        {"nome": "ALUP4.SA", "porcentagem ideal": 2.5, "quantidade": 1},
+        {"nome": "BBAS3.SA", "porcentagem ideal": 15, "quantidade": 23},
+        {"nome": "BBDC3.SA", "porcentagem ideal": 20, "quantidade": 3},
+        {"nome": "CMIG4.SA", "porcentagem ideal": 10, "quantidade": 2},
+        {"nome": "ITSA4.SA", "porcentagem ideal": 15, "quantidade": 52},
+        {"nome": "ITUB3.SA", "porcentagem ideal": 30, "quantidade": 2},
+        {"nome": "TAEE3.SA", "porcentagem ideal": 2.5, "quantidade": 0}
+    ]
+}
