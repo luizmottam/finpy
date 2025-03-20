@@ -12,7 +12,7 @@ headers = {
 }
 
 inicio = time.time()
-file_path = 'Standard/db/carteira.json'
+file_path = './db/carteira.json'
 
 # Open and read the JSON file
 with open(file_path, 'r') as file:
@@ -35,34 +35,40 @@ calc.valor_aplicado(fiis)
 
 def menu():
     os.system("cls")
-    print("{:=^50}\n".format("INVESTIMENTO"))
+    print("{:=^80}\n".format(" INVESTIMENTO "))
     montante = float(input("Montante no Final do Período: R$ "))
     tempo = int(input("Tempo (meses): "))
 
     # Porcentagem desejada para cada tipo
-    print("\n{:=^50}\n".format("DISTRIBUIÇÃO"))
+    print("\n{:=^80}\n".format(" DISTRIBUIÇÃO "))
     montanteRendaFixa = calc.montante_do_tipo(montante, "Renda Fixa: % ")
     montanteFiis = calc.montante_do_tipo(montante, "Fundos Imobiliários: % ")
     montanteAcoes = calc.montante_do_tipo(montante, "Ações: % ")
 
-    print("\n{:=^50}\n".format(""))
+    print("\n{:=^80}\n".format(""))
     print("Montante Final de Renda Fixa: R$ ", montanteRendaFixa)
     print("Montante Final de Fundos Imobiliários: R$ ", montanteFiis)
     print("Montante Final de Ações: R$ ", montanteAcoes)
-    print("\n{:=^50}\n".format(""))
+    print("\n{:=^80}\n".format(""))
 
     aporteTesouro = pd.DataFrame(calc.aporte(montanteRendaFixa, tesouro, tempo), columns=["Nome", "Quantidade", "Aporte Ideal", "Aporte Real"])
     aporteAcoes = pd.DataFrame(calc.aporte(montanteAcoes, acoes, tempo), columns=["Nome", "Quantidade", "Aporte Ideal", "Aporte Real"])
     aporteFiis = pd.DataFrame(calc.aporte(montanteFiis, fiis, tempo), columns=["Nome", "Quantidade", "Aporte Ideal", "Aporte Real"])
 
-    print(aporteTesouro[["Nome", "Aporte Real"]])
-    print(aporteFiis[["Nome", "Aporte Real"]])
-    print(aporteAcoes[["Nome", "Aporte Real"]])
+    print(aporteTesouro[["Nome", "Aporte Real", "Quantidade"]])
+    print(aporteFiis[["Nome", "Aporte Real", "Quantidade"]])
+    print(aporteAcoes[["Nome", "Aporte Real", "Quantidade"]])
     
     aporteTotal = aporteTesouro["Aporte Real"].sum() + aporteAcoes["Aporte Real"].sum() + aporteFiis["Aporte Real"].sum()
+    
+    print("\n{:=^80}".format(" INFROMAÇÕES ADICIONAIS "))
     print("Aporte Total: R$ ", round(aporteTotal, 2))
     print("Aporte em Tesouro Direto: R$ ", round(aporteTesouro["Aporte Real"].sum(), 2))
     print("Aporte em Fundos Imobiliários: R$ ", round(aporteFiis["Aporte Real"].sum(), 2))
     print("Aporte em Ações: R$ ", round(aporteAcoes["Aporte Real"].sum(), 2))
+    
+    print("\n{:=^80}".format(" QUANTO FALTA "))
+    calc.quantidade_final(montanteAcoes, acoes)
+    calc.quantidade_final(montanteFiis, fiis)
 
 menu()

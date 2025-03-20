@@ -19,6 +19,26 @@ def soma_valor_aplicado(loop):
     return soma
 
 
+def quantidade_final(montante, loop):
+    from math import ceil
+    qnt_final = []
+    
+    for i in range(len(loop)):
+        preco = loop.loc[i, "preco"]
+        porcentagemIdeal = loop.loc[i, "porcentagem ideal"]
+        nome = loop.loc[i, "nome"]
+        
+        totalAtivo = round(montante * (porcentagemIdeal/100), 3)
+        qnt = ceil((totalAtivo) / preco)
+    
+        print(f"No final dos aportes, você terá {qnt} do ativo {nome[:-3]}, totalizando cerca de R$ {totalAtivo}")
+        
+    
+        
+    
+
+
+
 def aporte(montanteDoTipo, loop, tempo):
     infoAporte = []
 
