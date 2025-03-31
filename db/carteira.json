@@ -3,33 +3,33 @@
         {
             "nome": "Tesouro Selic 2031",
             "porcentagem ideal": 35,
-            "capital aplicado": 1294.48
+            "capital aplicado": 1459.55
         },
         {
             "nome": "Tesouro Prefixado 2028",
             "porcentagem ideal": 35,
-            "capital aplicado": 905.71
+            "capital aplicado": 1020.62
         },
         {
             "nome": "Tesouro Prefixado com Juros Semestrais 2035",
             "porcentagem ideal": 10,
-            "capital aplicado": 188.99
+            "capital aplicado": 226.03
         },
         {
             "nome": "Tesouro IPCA+ 2029",
             "porcentagem ideal": 10,
-            "capital aplicado": 491.05
+            "capital aplicado": 554.63
         },
         {
             "nome": "Tesouro IPCA+ com Juros Semestrais 2035",
             "porcentagem ideal": 10,
-            "capital aplicado": 203.83
+            "capital aplicado": 244.40
         }
     ],
     "Fundos Imobiliarios": [
         {"nome": "MXRF11.SA", "porcentagem ideal": 35, "quantidade": 79},
         {"nome": "GARE11.SA", "porcentagem ideal": 35, "quantidade": 36},
-        {"nome": "CPTS11.SA", "porcentagem ideal": 15, "quantidade": 61},
+        {"nome": "CPTS11.SA", "porcentagem ideal": 15, "quantidade": 65},
         {"nome": "BRCO11.SA", "porcentagem ideal": 15, "quantidade": 7}
     ],
     "Acoes": [
