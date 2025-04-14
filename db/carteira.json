@@ -27,9 +27,9 @@
         }
     ],
     "Fundos Imobiliarios": [
-        {"nome": "MXRF11.SA", "porcentagem ideal": 35, "quantidade": 79},
+        {"nome": "MXRF11.SA", "porcentagem ideal": 35, "quantidade": 81},
         {"nome": "GARE11.SA", "porcentagem ideal": 35, "quantidade": 36},
-        {"nome": "CPTS11.SA", "porcentagem ideal": 15, "quantidade": 65},
+        {"nome": "CPTS11.SA", "porcentagem ideal": 15, "quantidade": 66},
         {"nome": "BRCO11.SA", "porcentagem ideal": 15, "quantidade": 7}
     ],
     "Acoes": [
