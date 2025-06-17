@@ -30,6 +30,7 @@ fiis["preco"] = bv.get_price_acoes_fiis(fiis["nome"])
 # Função para pegar preço do Tesouro Direto:
 tesouro["preco"] = td.get_price_td_wallet(tesouro["nome"], td.get_price_td())
 
+
 calc.valor_aplicado(acoes)
 calc.valor_aplicado(fiis)
 

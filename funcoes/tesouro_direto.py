@@ -21,9 +21,8 @@ def get_price_td():
 def get_price_td_wallet(loop, dataframe):
     prices = []
     
-    for nomeDoTitulo in loop:
+    for nomeDoTitulo in loop: # Percorre cada título do loop
         result = dataframe.loc[dataframe["TrsrBd_nm"] == nomeDoTitulo].values[0][1]
         prices.append(result)
         
     return prices
-    
