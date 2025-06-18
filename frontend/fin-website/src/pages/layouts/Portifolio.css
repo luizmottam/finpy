@@ -1,0 +1,20 @@
+.void-portifolio-container {
+    text-align: center;
+    width: 300px;
+    height: 200px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -100px;
+    margin-left: -150px;
+}
+
+.create-portifolio-button {
+    background-color: var(--primary-color-light);
+    color: var(--text-color-light);
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 51px;
+}
