@@ -1,3 +1,10 @@
+<<<<<<< HEAD
+import sqlite3
+import pandas as pd
+import matplotlib.pyplot as plt
+
+
+=======
 from pathlib import Path
 from fpdf import FPDF
 
@@ -50,3 +57,4 @@ for section, tools in sections.items():
 # Salvando o PDF
 output_path = "./Tecnologias_Topicos_de_Dados_Atualizado.pdf"
 pdf.output(output_path)
+>>>>>>> b1f1758822f23d1ef25c6c4414fbd5b7d3a6ccc2
