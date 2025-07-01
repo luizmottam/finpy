@@ -31,7 +31,7 @@ Este projeto é uma aplicação em Python para análise de carteiras de investim
 │   └── global.db             # Banco de dados SQLite
 ├── functions/
 │   └── prices.py             # Módulo responsável por buscar preços atuais dos ativos
-├── main.py                   # Script principal com menu e funcionalidades
+├── wallet.py                   # Script principal com menu e funcionalidades
 
 ````
 
@@ -41,20 +41,20 @@ Este projeto é uma aplicação em Python para análise de carteiras de investim
 
 1. Clone este repositório:
    ```bash
-   git clone https://github.com/seu-usuario/carteira-investimentos.git
-   cd carteira-investimentos
+   git clone https://github.com/luizmottam/finpy.git
+   cd finpy
 ````
 
 2. Instale as dependências (recomenda-se usar um ambiente virtual):
 
    ```bash
-   pip install -r requirements.txt
+   pip install pandas sqlite3 matplotlib requests numpy
    ```
 
 3. Execute o script principal:
 
    ```bash
-   python main.py
+   python wallet.py
    ```
 
 ---
@@ -94,14 +94,8 @@ Sinta-se livre para abrir issues, propor melhorias ou enviar pull requests. Toda
 
 ---
 
-## 📜 Licença
-
-Este projeto está licenciado sob a [MIT License](LICENSE).
-
----
-
 ## 👨‍💻 Autor
 
 Luiz de Aquino Motta Mendes
 Desenvolvedor Python com foco em análise financeira e automações.
-[LinkedIn](https://www.linkedin.com) | [GitHub](https://github.com/seu-usuario)
+[LinkedIn](https://www.linkedin.com/in/luizmottam) | [GitHub](https://github.com/luizmottam)
