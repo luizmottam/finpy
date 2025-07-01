@@ -98,5 +98,5 @@ Sinta-se livre para abrir issues, propor melhorias ou enviar pull requests. Toda
 ## 👨‍💻 Autor
 
 Luiz de Aquino Motta Mendes
-Desenvolvedor Python com foco em análise financeira e automações.
+Desenvolvedor Python com foco em análise financeira e automações.<br>
 [LinkedIn](https://www.linkedin.com/in/luizmottam) | [GitHub](https://github.com/luizmottam)
