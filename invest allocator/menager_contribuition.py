@@ -1,7 +1,7 @@
 import json
-import funcoes.bolsa_valores as bv
-import funcoes.tesouro_direto as td
-import funcoes.calc as calc
+import functions.stockPrice as bv
+import functions.tesouroDireto as td
+import functions.amountFunctions as calc
 import pandas as pd
 import time
 import os

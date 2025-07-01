@@ -33,12 +33,6 @@ def quantidade_final(montante, loop):
     
         print(f"No final dos aportes, você terá {qnt} do ativo {nome[:-3]}, totalizando cerca de R$ {totalAtivo}")
         
-    
-        
-    
-
-
-
 def aporte(montanteDoTipo, loop, tempo):
     infoAporte = []
 
