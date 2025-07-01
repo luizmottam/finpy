@@ -4,7 +4,7 @@ import sqlite3
 import matplotlib.pyplot as plt
 
 # Conectar ao banco de dados
-conn = sqlite3.connect("db/global.db")
+conn = sqlite3.connect("../db/global.db")
 
 # Ler dados do banco
 df = pd.read_sql("SELECT * FROM historico_contas", con=conn)

@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import yfinance as yf
 import sqlite3 as sql
-import markowitz.stockPriceFunctions as gp
+import prices as gp
 from scipy.optimize import minimize
 import matplotlib.ticker as mticker
 

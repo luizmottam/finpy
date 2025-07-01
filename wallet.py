@@ -31,6 +31,8 @@ def create_wallet_table():
     """
     )
 
+    webull, avenue = international_assets()
+    dolar = prices.get_current_price("USDBRL=X")
     # Inserindo dados de exemplo na tabela meu_portfolio
     my_wallet = [
         ["Renda Fixa", "Tesouro Selic", 2007.11, None],
@@ -50,6 +52,8 @@ def create_wallet_table():
         ["Acoes", "ITSA4", 0.00, 60],
         ["Acoes", "ITUB3", 0.00, 9],
         ["Acoes", "TAEE3", 0.00, 5],
+        ["Internacional", "Webull", (webull * dolar), None],
+        ["Internacional", "Avenue", (avenue * dolar), None],
     ]
 
     # Inserir dados na tabela meu_portfolio
@@ -82,30 +86,51 @@ def update_accumulated_value(type):
         )
     conn.commit()
 
-    print_wallet()
 
-# create_wallet_table()
-# update_accumulated_value("Fundos Imobiliarios")
-# update_accumulated_value("Acoes")
+def international_assets():
+    wallet = pd.read_sql_query("SELECT * FROM historico_contas;", conn)
+
+    webull = wallet["webull"].iloc[-1]
+    avenue = wallet["avenue"].iloc[-1]
+    return webull, avenue
 
 
 def sum_by_group(type):
     wallet = pd.read_sql_query("SELECT * FROM meu_portfolio;", conn)
 
     asset = wallet[wallet["scheme_name"] == type]
-    
-    total_value = asset['accumulated_value'].sum()
+
+    total_value = asset["accumulated_value"].sum()
     return total_value
-    
-    
-tesouro = sum_by_group('Renda Fixa')
-fiis = sum_by_group('Fundos Imobiliarios')
-acoes = sum_by_group('Acoes')
+
+
+create_wallet_table()
+update_accumulated_value("Fundos Imobiliarios")
+update_accumulated_value("Acoes")
+
+tesouro = sum_by_group("Renda Fixa")
+fiis = sum_by_group("Fundos Imobiliarios")
+acoes = sum_by_group("Acoes")
+internacional = sum_by_group("Internacional")
 
 print(tesouro)
 print(fiis)
 print(acoes)
+print(internacional)
 
-plt.pie([tesouro, acoes, fiis], labels=['Tesouro Direto', 'Ações', 'FIIs'], autopct='%1.1f%%')
-plt.title('Distribuição dos ativos')
+valores = [tesouro, acoes, fiis, internacional]
+labels = [
+    f"Tesouro Direto (R$ {tesouro:,.2f})",
+    f"Ações (R$ {acoes:,.2f})",
+    f"FIIs (R$ {fiis:,.2f})",
+    f"Internacional (R$ {internacional:,.2f})",
+]
+
+plt.pie(
+    valores,
+    labels=labels,
+    autopct="%1.1f%%",
+)
+
+plt.title("Distribuição dos ativos")
 plt.show()
