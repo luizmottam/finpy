@@ -1,8 +1,3 @@
-Claro. Aqui está um **README.md profissional**, ideal para um repositório público no GitHub de um projeto de análise de carteira de investimentos em Python:
-
----
-
-```markdown
 # Carteira de Investimentos 📈💼
 
 Este projeto é uma aplicação em Python para análise de carteiras de investimentos, com visualizações gráficas e atualização automática dos preços dos ativos via integração com APIs externas.
@@ -110,10 +105,3 @@ Este projeto está licenciado sob a [MIT License](LICENSE).
 Luiz de Aquino Motta Mendes
 Desenvolvedor Python com foco em análise financeira e automações.
 [LinkedIn](https://www.linkedin.com) | [GitHub](https://github.com/seu-usuario)
-
-```
-
----
-
-Se quiser, posso gerar o `requirements.txt` com base nas libs usadas ou preparar o `LICENSE`. Quer deixar isso pronto também?
-```
