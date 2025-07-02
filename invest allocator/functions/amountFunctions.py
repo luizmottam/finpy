@@ -27,11 +27,13 @@ def quantidade_final(montante, loop):
         preco = loop.loc[i, "preco"]
         porcentagemIdeal = loop.loc[i, "porcentagem ideal"]
         nome = loop.loc[i, "nome"]
+        qnt_atual = loop.loc[i, "quantidade"]
         
         totalAtivo = round(montante * (porcentagemIdeal/100), 3)
         qnt = ceil((totalAtivo) / preco)
     
-        print(f"No final dos aportes, você terá {qnt} do ativo {nome[:-3]}, totalizando cerca de R$ {totalAtivo}")
+        print(f"Ativo: {nome[:-3]} | No final: {qnt} | Atualmente: {qnt_atual} | Falta: {qnt-qnt_atual} | Total Final: {totalAtivo}")
+        
         
 def aporte(montanteDoTipo, loop, tempo):
     infoAporte = []

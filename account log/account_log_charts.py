@@ -41,10 +41,6 @@ plt.legend()
 plt.show()
 plt.close()
 
-plt.pie([avenue['avenue'].sum(), rico['rico'].sum(), webull['webull'].sum()], labels=['Avenue', 'Rico', 'Webull'], autopct='%1.1f%%')
-plt.title('Distribuição dos valores por plataforma')
-plt.show()
-
 ativos_nacionais = rico['rico'].iloc[-1]
 ativos_internacionais = (float(avenue['avenue'].iloc[-1]) + float(webull['webull'].iloc[-1])) * 5.474
 
