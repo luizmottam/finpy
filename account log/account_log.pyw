@@ -4,11 +4,11 @@ from datetime import datetime
 import os
 
 # Caminho do banco
-DB_PATH = os.path.join("db", "global.db")
+DB_PATH = os.path.join("../db/", "global.db")
 
 # Inicializar o banco
 def init_db():
-    os.makedirs("db", exist_ok=True)
+    os.makedirs("../db/", exist_ok=True)
     conn = sqlite3.connect(DB_PATH)
     cursor = conn.cursor()
     cursor.execute("""
