@@ -37,14 +37,14 @@ def create_wallet_table():
 
     my_wallet = [
         # Renda Fixa
-        ["Renda Fixa", "Tesouro Selic", 2007.11, None],
-        ["Renda Fixa", "Tesouro Prefixado", 1483.11, None],
-        ["Renda Fixa", "Tesouro Prefixado com Juros Semestrais", 342.54, None],
-        ["Renda Fixa", "Tesouro IPCA+", 714.36, None],
-        ["Renda Fixa", "Tesouro IPCA+ com Juros Semestrais", 457.68, None],
+        ["Renda Fixa", "Tesouro Selic", 2009.40, None],
+        ["Renda Fixa", "Tesouro Prefixado", 1495.90, None],
+        ["Renda Fixa", "Tesouro Prefixado com Juros Semestrais", 329.74, None],
+        ["Renda Fixa", "Tesouro IPCA+", 717.94, None],
+        ["Renda Fixa", "Tesouro IPCA+ com Juros Semestrais", 460.84, None],
         # Internacional
-        ["Internacional", "Webull", webull * dolar, None],
-        ["Internacional", "Avenue", avenue * dolar, None],
+        ["Internacional", "Webull", round(webull * dolar,2), None],
+        ["Internacional", "Avenue", round(avenue * dolar,2), None],
         # Fundos Imobiliários
         ["Fundos Imobiliarios", "MXRF11", 0.00, 105],
         ["Fundos Imobiliarios", "GARE11", 0.00, 60],
@@ -52,7 +52,7 @@ def create_wallet_table():
         ["Fundos Imobiliarios", "BRCO11", 0.00, 9],
         ["Fundos Imobiliarios", "RBVA11", 0.00, 40],
         # Ações
-        ["Acoes", "ALUP4", 0.00, 5],
+        ["Acoes", "ALUP4", 0.00, 7],
         ["Acoes", "BBAS3", 0.00, 28],
         ["Acoes", "BBDC3", 0.00, 18],
         ["Acoes", "CMIG4", 0.00, 9],
@@ -203,6 +203,7 @@ def menu():
             chart_geral_portfolio()
         elif opc == "6":
             chart_renda_fixa()
+            chart_stocks("Renda Fixa", "Distribuição dos ativos em renda fixa")
         elif opc == "7":
             chart_stocks("Acoes", "Distribuição dos ativos em ações")
         elif opc == "8":
