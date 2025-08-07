@@ -37,23 +37,23 @@ def create_wallet_table():
 
     my_wallet = [
         # Renda Fixa
-        ["Renda Fixa", "Tesouro Selic", 2009.40, None],
-        ["Renda Fixa", "Tesouro Prefixado", 1495.90, None],
-        ["Renda Fixa", "Tesouro Prefixado com Juros Semestrais", 329.74, None],
-        ["Renda Fixa", "Tesouro IPCA+", 717.94, None],
-        ["Renda Fixa", "Tesouro IPCA+ com Juros Semestrais", 460.84, None],
+        ["Renda Fixa", "Tesouro Selic", 0, None],
+        ["Renda Fixa", "Tesouro Prefixado", 1496.54, None],
+        ["Renda Fixa", "Tesouro Prefixado com Juros Semestrais", 324.70, None],
+        ["Renda Fixa", "Tesouro IPCA+", 715.94, None],
+        ["Renda Fixa", "Tesouro IPCA+ com Juros Semestrais", 455.85, None],
         # Internacional
         ["Internacional", "Webull", round(webull * dolar,2), None],
         ["Internacional", "Avenue", round(avenue * dolar,2), None],
         # Fundos Imobiliários
-        ["Fundos Imobiliarios", "MXRF11", 0.00, 105],
+        ["Fundos Imobiliarios", "MXRF11", 0.00, 106],
         ["Fundos Imobiliarios", "GARE11", 0.00, 60],
         ["Fundos Imobiliarios", "CPTS11", 0.00, 26],
         ["Fundos Imobiliarios", "BRCO11", 0.00, 9],
-        ["Fundos Imobiliarios", "RBVA11", 0.00, 40],
+        ["Fundos Imobiliarios", "RBVA11", 0.00, 41],
         # Ações
         ["Acoes", "ALUP4", 0.00, 7],
-        ["Acoes", "BBAS3", 0.00, 28],
+        ["Acoes", "BBAS3", 0.00, 34],
         ["Acoes", "BBDC3", 0.00, 18],
         ["Acoes", "CMIG4", 0.00, 9],
         ["Acoes", "ITSA4", 0.00, 60],
@@ -126,6 +126,19 @@ def chart_geral_portfolio():
     plt.pie(valores, labels=labels, autopct="%1.1f%%")
     plt.title("Distribuição dos ativos")
     plt.show()
+    
+    valores = [tesouro, acoes, fiis]
+    labels = [
+        f"Tesouro Direto (R$ {tesouro:,.2f})",
+        f"Ações (R$ {acoes:,.2f})",
+        f"FIIs (R$ {fiis:,.2f})",
+    ]
+
+    plt.pie(valores, labels=labels, autopct="%1.1f%%")
+    plt.title("Distribuição dos ativos")
+    plt.show()
+    
+    
 
 
 def chart_renda_fixa():
