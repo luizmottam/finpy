@@ -1,9 +1,10 @@
 import requests
 import pandas as pd
 import urllib3
+
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
-def get_price_td():
+def get_price_td_old():
     # Acessando a API do Tesouro Direto
     url = "https://www.tesourodireto.com.br/json/br/com/b3/tesourodireto/service/api/treasurybondsinfo.json"
 
@@ -17,12 +18,20 @@ def get_price_td():
     # TrsrBd_minRedVal = Valor Mínimo de Aporte
     return df[["TrsrBd_nm", "TrsrBd_minRedVal"]]
 
+def get_price_td(path):
+    df = pd.read_csv(path, sep=";")
+    
+    for l in range(len(df)):
+        brl, valor = df.iloc[l, 1].replace(",", ".").split()
+        df.iloc[l, 1] = float(valor)
+    
+    return df
 
 def get_price_td_wallet(loop, dataframe):
     prices = []
     
     for nomeDoTitulo in loop: # Percorre cada título do loop
-        result = dataframe.loc[dataframe["TrsrBd_nm"] == nomeDoTitulo].values[0][1]
+        result = dataframe.loc[dataframe["Título"] == nomeDoTitulo].values[0][1]
         prices.append(result)
         
     return prices

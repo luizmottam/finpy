@@ -31,8 +31,27 @@ def quantidade_final(montante, loop):
         
         totalAtivo = round(montante * (porcentagemIdeal/100), 3)
         qnt = ceil((totalAtivo) / preco)
+
+        if ((qnt-qnt_atual) > 0): # Esse if só verifica quais ativos eu ainda preciso aportar
+            print(f"Ativo: {nome[:-3]} | No final: {qnt} | Atualmente: {qnt_atual} | Falta: {qnt-qnt_atual} | Total Final: {totalAtivo}")
+    print("\n")
+
+def quantidade_final_td(montante, loop):
+    from math import ceil
+    qnt_final = []
     
-        print(f"Ativo: {nome[:-3]} | No final: {qnt} | Atualmente: {qnt_atual} | Falta: {qnt-qnt_atual} | Total Final: {totalAtivo}")
+    for i in range(len(loop)):
+        nome = loop.loc[i, "nome"]
+        preco = loop.loc[i, "preco"]
+        porcentagemIdeal = loop.loc[i, "porcentagem ideal"]
+        totalAtivo = round(montante * (porcentagemIdeal/100), 3)
+        capitalAplciado = loop.loc[i, "capital aplicado"]
+        
+        qnt_atual = ceil((capitalAplciado/preco))
+        qnt = ceil((totalAtivo) / preco)
+        
+        if ((qnt-qnt_atual) > 0): # Esse if só verifica quais ativos eu ainda preciso aportar
+            print(f"Ativo: {nome[:-3]} | No final: {qnt} | Atualmente: {qnt_atual} | Falta: {qnt-qnt_atual} | Total Final: {totalAtivo}")
         
         
 def aporte(montanteDoTipo, loop, tempo):

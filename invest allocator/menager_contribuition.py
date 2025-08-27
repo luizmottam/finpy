@@ -16,10 +16,11 @@ headers = {
 inicio = time.time()
 
 # Caminho do arquivo da carteira
-file_path = '../db/carteira.json'
+file_path = "../db/carteira.json"
+path = "../db/rendimento-investir.csv"
 
 # Lê a carteira do arquivo JSON
-with open(file_path, 'r') as file:
+with open(file_path, "r") as file:
     wallet = json.load(file)
 
 # Converte a carteira em DataFrames
@@ -32,7 +33,7 @@ acoes["preco"] = bv.get_price_acoes_fiis(acoes["nome"])
 fiis["preco"] = bv.get_price_acoes_fiis(fiis["nome"])
 
 # Busca o preço atual dos títulos do Tesouro Direto
-tesouro["preco"] = td.get_price_td_wallet(tesouro["nome"], td.get_price_td())
+tesouro["preco"] = td.get_price_td_wallet(tesouro["nome"], td.get_price_td(path))
 
 # Calcula o valor já aplicado
 calc.valor_aplicado(acoes)
@@ -64,15 +65,15 @@ def menu():
             # Calcula o aporte ideal para cada ativo
             aporte_tesouro = pd.DataFrame(
                 calc.aporte(montante_renda_fixa, tesouro, tempo),
-                columns=["Nome", "Quantidade", "Aporte Ideal", "Aporte Real"]
+                columns=["Nome", "Quantidade", "Aporte Ideal", "Aporte Real"],
             )
             aporte_acoes = pd.DataFrame(
                 calc.aporte(montante_acoes, acoes, tempo),
-                columns=["Nome", "Quantidade", "Aporte Ideal", "Aporte Real"]
+                columns=["Nome", "Quantidade", "Aporte Ideal", "Aporte Real"],
             )
             aporte_fiis = pd.DataFrame(
                 calc.aporte(montante_fiis, fiis, tempo),
-                columns=["Nome", "Quantidade", "Aporte Ideal", "Aporte Real"]
+                columns=["Nome", "Quantidade", "Aporte Ideal", "Aporte Real"],
             )
 
             # Exibe o aporte necessário por classe
@@ -82,21 +83,28 @@ def menu():
 
             # Soma total dos aportes
             aporte_total = (
-                aporte_tesouro["Aporte Real"].sum() +
-                aporte_acoes["Aporte Real"].sum() +
-                aporte_fiis["Aporte Real"].sum()
+                aporte_tesouro["Aporte Real"].sum()
+                + aporte_acoes["Aporte Real"].sum()
+                + aporte_fiis["Aporte Real"].sum()
             )
 
             print("\n{:=^80}".format(" INFORMAÇÕES ADICIONAIS "))
             print("Aporte Total: R$ ", round(aporte_total, 2))
-            print("Aporte em Tesouro Direto: R$ ", round(aporte_tesouro["Aporte Real"].sum(), 2))
-            print("Aporte em Fundos Imobiliários: R$ ", round(aporte_fiis["Aporte Real"].sum(), 2))
+            print(
+                "Aporte em Tesouro Direto: R$ ",
+                round(aporte_tesouro["Aporte Real"].sum(), 2),
+            )
+            print(
+                "Aporte em Fundos Imobiliários: R$ ",
+                round(aporte_fiis["Aporte Real"].sum(), 2),
+            )
             print("Aporte em Ações: R$ ", round(aporte_acoes["Aporte Real"].sum(), 2))
 
             # Mostra quantidade de ativos necessária para atingir o objetivo
             print("\n{:=^80}".format(" QUANTO FALTA "))
             calc.quantidade_final(montante_acoes, acoes)
             calc.quantidade_final(montante_fiis, fiis)
+            calc.quantidade_final_td(montante_renda_fixa, tesouro)
 
         except Exception as e:
             print("\nErro:", e)
